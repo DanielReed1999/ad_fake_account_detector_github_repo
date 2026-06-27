@@ -1,0 +1,168 @@
+<html><head><meta charset='utf-8'>
+
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:20px}
+table{border-collapse:collapse;width:100%;margin:10px 0}
+th,td{border:1px solid #ddd;padding:8px;font-size:12px;vertical-align:top}
+th{background:#f3f3f3}
+.HIGH{background:#ffe6e6}
+.MEDIUM{background:#fff7e6}
+.LOW{background:#e6f0ff}
+.INFO{background:#f7f7f7}
+code{background:#f6f6f6;padding:2px 4px}
+small{color:#666}
+</style>
+
+</head><body>
+<h1>AD Fake Account Detection Report</h1>
+<p>Generated: 2026-04-07T16:28:24.469059+00:00</p>
+<p>Total parsed events: 192</p>
+<p>Total suspicious findings: 3</p>
+<h2>Overview</h2>
+<table><tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Findings: HIGH</td><td>0</td></tr>
+<tr><td>Findings: MEDIUM</td><td>3</td></tr>
+<tr><td>Findings: LOW</td><td>0</td></tr>
+<tr><td>Findings: INFO</td><td>0</td></tr>
+</table>
+<h2>Case type distribution</h2>
+<table><tr><th>Case type</th><th>Count</th></tr>
+<tr><td>suspicious_privileged_account</td><td>2</td></tr>
+<tr><td>suspicious_new_or_enabled_account</td><td>1</td></tr>
+</table>
+<h2>Risk category distribution</h2>
+<table><tr><th>Category</th><th>Count</th></tr>
+<tr><td>identity</td><td>3</td></tr>
+<tr><td>timing</td><td>3</td></tr>
+<tr><td>privilege</td><td>2</td></tr>
+</table>
+<h2>Most frequent triggers</h2>
+<table><tr><th>Trigger</th><th>Count</th></tr>
+<tr><td>Создание/активация аккаунта вне рабочих часов или в выходной день</td><td>3</td></tr>
+<tr><td>Добавление в привилегированные группы: Enterprise Admins</td><td>2</td></tr>
+<tr><td>Имя аккаунта похоже на служебное/привилегированное: root</td><td>1</td></tr>
+<tr><td>Имя аккаунта выглядит типовым: user1</td><td>1</td></tr>
+<tr><td>Имя аккаунта выглядит типовым: suspectuser</td><td>1</td></tr>
+<tr><td>Зафиксирована активация аккаунта без наблюдаемого события создания</td><td>1</td></tr>
+<tr><td>Аккаунт включён вскоре после создания/обнаружения</td><td>1</td></tr>
+</table>
+<h2>Summary</h2>
+
+<table>
+<tr>
+  <th>Account</th>
+  <th>Case Origin</th>
+  <th>Case Type</th>
+  <th>Risk</th>
+  <th>Score</th>
+  <th>Created / Activated</th>
+  <th>Creator</th>
+  <th>Creator IP</th>
+  <th>Creator WS</th>
+  <th>Categories</th>
+  <th>Reasons</th>
+</tr>
+
+<tr class='MEDIUM'><td><a href='#root'>root</a></td><td>created</td><td>suspicious_privileged_account</td><td>MEDIUM</td><td>65</td><td>2026-02-06T06:10:07.623720+00:00</td><td>normaluser</td><td></td><td></td><td>identity, privilege, timing</td><td>Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на служебное/привилегированное: root (+10) | Добавление в привилегированные группы: Enterprise Admins (+35)</td></tr>
+<tr class='MEDIUM'><td><a href='#user1'>user1</a></td><td>created</td><td>suspicious_privileged_account</td><td>MEDIUM</td><td>50</td><td>2026-02-08T21:22:10.094605+00:00</td><td>support</td><td></td><td></td><td>identity, privilege, timing</td><td>Имя аккаунта выглядит типовым: user1 (-5) | Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Добавление в привилегированные группы: Enterprise Admins (+35)</td></tr>
+<tr class='MEDIUM'><td><a href='#suspectuser'>suspectuser</a></td><td>enabled_only</td><td>suspicious_new_or_enabled_account</td><td>MEDIUM</td><td>40</td><td>2026-02-03T21:53:15.977759+00:00</td><td>random123abc456def</td><td></td><td></td><td>identity, timing</td><td>Имя аккаунта выглядит типовым: suspectuser (-5) | Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Зафиксирована активация аккаунта без наблюдаемого события создания (+15) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10)</td></tr>
+</table>
+<h2>Details</h2>
+<h3 id='root'>root — MEDIUM (65)</h3>
+<ul>
+<li><b>Case origin:</b> created</li>
+<li><b>Case type:</b> suspicious_privileged_account</li>
+<li><b>Created / activated:</b> 2026-02-06T06:10:07.623720+00:00</li>
+<li><b>Creator:</b> normaluser</li>
+<li><b>Creator source:</b> IP=; WS=</li>
+<li><b>Risk categories:</b> identity, privilege, timing</li>
+<li><b>Reasons:</b> Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на служебное/привилегированное: root (+10) | Добавление в привилегированные группы: Enterprise Admins (+35)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-06T06:10:07.623720+00:00</td><td>4720</td><td>User account created</td><td>WORKSTATION1</td><td>normaluser</td><td>root</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-06T08:44:52.590980+00:00</td><td>4720</td><td>User account created</td><td>WORKSTATION1</td><td>root</td><td>root</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-07T03:46:02.463834+00:00</td><td>4732</td><td>Member added to security-enabled local group</td><td>DC01</td><td>admin</td><td></td><td>Enterprise Admins</td><td>CN=root,DC=ADATUM</td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<h3 id='user1'>user1 — MEDIUM (50)</h3>
+<ul>
+<li><b>Case origin:</b> created</li>
+<li><b>Case type:</b> suspicious_privileged_account</li>
+<li><b>Created / activated:</b> 2026-02-08T21:22:10.094605+00:00</li>
+<li><b>Creator:</b> support</li>
+<li><b>Creator source:</b> IP=; WS=</li>
+<li><b>Risk categories:</b> identity, privilege, timing</li>
+<li><b>Reasons:</b> Имя аккаунта выглядит типовым: user1 (-5) | Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Добавление в привилегированные группы: Enterprise Admins (+35)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-08T21:22:10.094605+00:00</td><td>4720</td><td>User account created</td><td>WORKSTATION1</td><td>support</td><td>user1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-09T02:32:57.927062+00:00</td><td>4732</td><td>Member added to security-enabled local group</td><td>WORKSTATION1</td><td>suspectuser</td><td></td><td>Enterprise Admins</td><td>CN=user1,DC=FABRIKAM</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-09T05:12:26.378425+00:00</td><td>4720</td><td>User account created</td><td>SERVER2</td><td>root</td><td>user1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-09T06:28:04.882253+00:00</td><td>4720</td><td>User account created</td><td>SERVER2</td><td>root</td><td>user1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-09T13:31:46.540838+00:00</td><td>4625</td><td>Failed logon</td><td>WORKSTATION1</td><td>-</td><td>user1</td><td></td><td></td><td>192.168.1.100</td><td>WS2</td><td>3</td><td></td><td></td></tr>
+</table>
+<h3 id='suspectuser'>suspectuser — MEDIUM (40)</h3>
+<ul>
+<li><b>Case origin:</b> enabled_only</li>
+<li><b>Case type:</b> suspicious_new_or_enabled_account</li>
+<li><b>Created / activated:</b> 2026-02-03T21:53:15.977759+00:00</li>
+<li><b>Creator:</b> random123abc456def</li>
+<li><b>Creator source:</b> IP=; WS=</li>
+<li><b>Risk categories:</b> identity, timing</li>
+<li><b>Reasons:</b> Имя аккаунта выглядит типовым: suspectuser (-5) | Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Зафиксирована активация аккаунта без наблюдаемого события создания (+15) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-03T21:53:15.977759+00:00</td><td>4722</td><td>User account enabled</td><td>DC01</td><td>random123abc456def</td><td>suspectuser</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T03:48:55.731537+00:00</td><td>4722</td><td>User account enabled</td><td>DC01</td><td>user1</td><td>suspectuser</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+</body></html>
