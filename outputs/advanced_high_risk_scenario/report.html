@@ -1,0 +1,337 @@
+<html><head><meta charset='utf-8'>
+
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:20px}
+table{border-collapse:collapse;width:100%;margin:10px 0}
+th,td{border:1px solid #ddd;padding:8px;font-size:12px;vertical-align:top}
+th{background:#f3f3f3}
+.HIGH{background:#ffe6e6}
+.MEDIUM{background:#fff7e6}
+.LOW{background:#e6f0ff}
+.INFO{background:#f7f7f7}
+code{background:#f6f6f6;padding:2px 4px}
+small{color:#666}
+</style>
+
+</head><body>
+<h1>AD Fake Account Detection Report</h1>
+<p>Generated: 2026-04-07T16:33:29.471085+00:00</p>
+<p>Total parsed events: 84</p>
+<p>Total suspicious findings: 7</p>
+<h2>Overview</h2>
+<table><tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Findings: HIGH</td><td>6</td></tr>
+<tr><td>Findings: MEDIUM</td><td>1</td></tr>
+<tr><td>Findings: LOW</td><td>0</td></tr>
+<tr><td>Findings: INFO</td><td>0</td></tr>
+</table>
+<h2>Case type distribution</h2>
+<table><tr><th>Case type</th><th>Count</th></tr>
+<tr><td>suspicious_privileged_account</td><td>5</td></tr>
+<tr><td>suspicious_privileged_kerberos_account</td><td>2</td></tr>
+</table>
+<h2>Risk category distribution</h2>
+<table><tr><th>Category</th><th>Count</th></tr>
+<tr><td>identity</td><td>7</td></tr>
+<tr><td>privilege</td><td>7</td></tr>
+<tr><td>timing</td><td>7</td></tr>
+<tr><td>kerberos</td><td>2</td></tr>
+</table>
+<h2>Most frequent triggers</h2>
+<table><tr><th>Trigger</th><th>Count</th></tr>
+<tr><td>Аккаунт включён вскоре после создания/обнаружения</td><td>7</td></tr>
+<tr><td>Создание/активация аккаунта вне рабочих часов или в выходной день</td><td>6</td></tr>
+<tr><td>Kerberos TGT-запрос зафиксирован вскоре после создания/активации аккаунта</td><td>2</td></tr>
+<tr><td>Обнаружена ускоренная цепочка событий после создания/активации аккаунта</td><td>2</td></tr>
+<tr><td>Вскоре после создания/активации зафиксирована попытка смены/сброса пароля</td><td>2</td></tr>
+<tr><td>Добавление в привилегированные группы: Schema Admins</td><td>2</td></tr>
+<tr><td>Добавление в привилегированные группы: Enterprise Admins</td><td>2</td></tr>
+<tr><td>Имя аккаунта похоже на автоматически сгенерированное: random123abc456def</td><td>1</td></tr>
+<tr><td>Добавление в привилегированные группы: Administrators, Domain Admins</td><td>1</td></tr>
+<tr><td>Имя аккаунта выглядит типовым: svc_backup</td><td>1</td></tr>
+<tr><td>Добавление в привилегированные группы: Backup Operators</td><td>1</td></tr>
+<tr><td>Имя аккаунта похоже на служебное/привилегированное: admin</td><td>1</td></tr>
+<tr><td>Добавление в привилегированные группы: Domain Admins, Enterprise Admins</td><td>1</td></tr>
+<tr><td>Имя аккаунта похоже на служебное/привилегированное: guest</td><td>1</td></tr>
+<tr><td>Имя аккаунта похоже на служебное/привилегированное: support</td><td>1</td></tr>
+</table>
+<h2>Summary</h2>
+
+<table>
+<tr>
+  <th>Account</th>
+  <th>Case Origin</th>
+  <th>Case Type</th>
+  <th>Risk</th>
+  <th>Score</th>
+  <th>Created / Activated</th>
+  <th>Creator</th>
+  <th>Creator IP</th>
+  <th>Creator WS</th>
+  <th>Categories</th>
+  <th>Reasons</th>
+</tr>
+
+<tr class='HIGH'><td><a href='#random123abc456def'>random123abc456def</a></td><td>created</td><td>suspicious_privileged_kerberos_account</td><td>HIGH</td><td>95</td><td>2026-02-03T19:12:10+00:00</td><td>suspectuser</td><td>192.168.1.100</td><td>ws2</td><td>identity, kerberos, privilege, timing</td><td>Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на автоматически сгенерированное: random123abc456def (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Administrators, Domain Admins (+35) | Kerberos TGT-запрос зафиксирован вскоре после создания/активации аккаунта (4768) (+5) | Обнаружена ускоренная цепочка событий после создания/активации аккаунта (+15)</td></tr>
+<tr class='HIGH'><td><a href='#svc_backup'>svc_backup</a></td><td>created</td><td>suspicious_privileged_kerberos_account</td><td>HIGH</td><td>90</td><td>2026-02-03T19:30:00+00:00</td><td>itadmin</td><td>10.0.0.50</td><td>jump01</td><td>identity, kerberos, privilege, timing</td><td>Имя аккаунта выглядит типовым: svc_backup (-5) | Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Backup Operators (+35) | Вскоре после создания/активации зафиксирована попытка смены/сброса пароля (+10) | Kerberos TGT-запрос зафиксирован вскоре после создания/активации аккаунта (4768) (+5) | Обнаружена ускоренная цепочка событий после создания/активации аккаунта (+15)</td></tr>
+<tr class='HIGH'><td><a href='#admin'>admin</a></td><td>created</td><td>suspicious_privileged_account</td><td>HIGH</td><td>75</td><td>2026-02-03T18:52:10+00:00</td><td>normaluser</td><td>203.0.113.50</td><td>ws-ext01</td><td>identity, privilege, timing</td><td>Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на служебное/привилегированное: admin (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Domain Admins, Enterprise Admins (+35)</td></tr>
+<tr class='HIGH'><td><a href='#guest'>guest</a></td><td>created</td><td>suspicious_privileged_account</td><td>HIGH</td><td>75</td><td>2026-02-04T06:13:25+00:00</td><td>guest</td><td>10.2.3.4</td><td>kiosk1</td><td>identity, privilege, timing</td><td>Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на служебное/привилегированное: guest (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Schema Admins (+35)</td></tr>
+<tr class='HIGH'><td><a href='#support'>support</a></td><td>created</td><td>suspicious_privileged_account</td><td>HIGH</td><td>75</td><td>2026-02-03T20:06:15+00:00</td><td>helpdesk</td><td>10.0.1.12</td><td>ws3</td><td>identity, privilege, timing</td><td>Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на служебное/привилегированное: support (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Enterprise Admins (+35)</td></tr>
+<tr class='HIGH'><td><a href='#testuser'>testuser</a></td><td>created</td><td>suspicious_privileged_account</td><td>HIGH</td><td>70</td><td>2026-02-03T21:12:30+00:00</td><td>guest</td><td>10.2.3.4</td><td>kiosk1</td><td>identity, privilege, timing</td><td>Имя аккаунта выглядит типовым: testuser (-5) | Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Schema Admins (+35) | Вскоре после создания/активации зафиксирована попытка смены/сброса пароля (+10)</td></tr>
+<tr class='MEDIUM'><td><a href='#root'>root</a></td><td>created</td><td>suspicious_privileged_account</td><td>MEDIUM</td><td>50</td><td>2026-02-04T10:02:10+00:00</td><td>normaluser</td><td></td><td></td><td>identity, privilege, timing</td><td>Создание/активация в рабочее время (-5) | Имя аккаунта похоже на служебное/привилегированное: root (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Enterprise Admins (+35)</td></tr>
+</table>
+<h2>Details</h2>
+<h3 id='random123abc456def'>random123abc456def — HIGH (95)</h3>
+<ul>
+<li><b>Case origin:</b> created</li>
+<li><b>Case type:</b> suspicious_privileged_kerberos_account</li>
+<li><b>Created / activated:</b> 2026-02-03T19:12:10+00:00</li>
+<li><b>Creator:</b> suspectuser</li>
+<li><b>Creator source:</b> IP=192.168.1.100; WS=ws2</li>
+<li><b>Risk categories:</b> identity, kerberos, privilege, timing</li>
+<li><b>Reasons:</b> Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на автоматически сгенерированное: random123abc456def (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Administrators, Domain Admins (+35) | Kerberos TGT-запрос зафиксирован вскоре после создания/активации аккаунта (4768) (+5) | Обнаружена ускоренная цепочка событий после создания/активации аккаунта (+15)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-03T19:12:10+00:00</td><td>4720</td><td>User account created</td><td>SERVER2</td><td>suspectuser</td><td>random123abc456def</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:14:00+00:00</td><td>4722</td><td>User account enabled</td><td>SERVER2</td><td>suspectuser</td><td>random123abc456def</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:15:30+00:00</td><td>4728</td><td>Member added to security-enabled global group</td><td>DC01</td><td>suspectuser</td><td></td><td>Administrators</td><td>CN=random123abc456def,DC=FABRIKAM</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:16:05+00:00</td><td>4732</td><td>Member added to security-enabled local group</td><td>DC01</td><td>suspectuser</td><td></td><td>Domain Admins</td><td>CN=random123abc456def,DC=FABRIKAM</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:18:10+00:00</td><td>4625</td><td>Failed logon</td><td>DC01</td><td>-</td><td>random123abc456def</td><td></td><td></td><td>198.51.100.23</td><td>PC-UNKNOWN</td><td>3</td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:19:35+00:00</td><td>4624</td><td>Successful logon</td><td>DC01</td><td>-</td><td>random123abc456def</td><td></td><td></td><td>198.51.100.23</td><td>PC-UNKNOWN</td><td>10</td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:21:00+00:00</td><td>4768</td><td>Kerberos TGT requested</td><td>DC01</td><td></td><td>random123abc456def</td><td></td><td></td><td>198.51.100.23</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:21:40+00:00</td><td>4769</td><td>Kerberos service ticket requested</td><td>DC01</td><td></td><td>random123abc456def</td><td></td><td></td><td>198.51.100.23</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T12:02:10+00:00</td><td>4768</td><td>Kerberos TGT requested</td><td>DC01</td><td></td><td>random123abc456def</td><td></td><td></td><td>198.51.100.23</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T12:03:30+00:00</td><td>4769</td><td>Kerberos service ticket requested</td><td>DC01</td><td></td><td>random123abc456def</td><td></td><td></td><td>198.51.100.23</td><td></td><td></td><td></td><td></td></tr>
+</table>
+<h3 id='svc_backup'>svc_backup — HIGH (90)</h3>
+<ul>
+<li><b>Case origin:</b> created</li>
+<li><b>Case type:</b> suspicious_privileged_kerberos_account</li>
+<li><b>Created / activated:</b> 2026-02-03T19:30:00+00:00</li>
+<li><b>Creator:</b> itadmin</li>
+<li><b>Creator source:</b> IP=10.0.0.50; WS=jump01</li>
+<li><b>Risk categories:</b> identity, kerberos, privilege, timing</li>
+<li><b>Reasons:</b> Имя аккаунта выглядит типовым: svc_backup (-5) | Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Backup Operators (+35) | Вскоре после создания/активации зафиксирована попытка смены/сброса пароля (+10) | Kerberos TGT-запрос зафиксирован вскоре после создания/активации аккаунта (4768) (+5) | Обнаружена ускоренная цепочка событий после создания/активации аккаунта (+15)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-03T19:30:00+00:00</td><td>4720</td><td>User account created</td><td>DC01</td><td>itadmin</td><td>svc_backup</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:33:50+00:00</td><td>4722</td><td>User account enabled</td><td>DC01</td><td>itadmin</td><td>svc_backup</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:36:20+00:00</td><td>4756</td><td>Member added to security-enabled universal group</td><td>DC01</td><td>itadmin</td><td></td><td>Backup Operators</td><td>CN=svc_backup,DC=CONTOSO</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:38:05+00:00</td><td>4724</td><td>Attempt to reset account password</td><td>SERVER2</td><td>support</td><td>svc_backup</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:40:10+00:00</td><td>4624</td><td>Successful logon</td><td>DC01</td><td>-</td><td>svc_backup</td><td></td><td></td><td>8.8.8.8</td><td>WS1</td><td>3</td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:41:30+00:00</td><td>4768</td><td>Kerberos TGT requested</td><td>DC01</td><td></td><td>svc_backup</td><td></td><td></td><td>8.8.8.8</td><td></td><td></td><td></td><td></td></tr>
+</table>
+<h3 id='admin'>admin — HIGH (75)</h3>
+<ul>
+<li><b>Case origin:</b> created</li>
+<li><b>Case type:</b> suspicious_privileged_account</li>
+<li><b>Created / activated:</b> 2026-02-03T18:52:10+00:00</li>
+<li><b>Creator:</b> normaluser</li>
+<li><b>Creator source:</b> IP=203.0.113.50; WS=ws-ext01</li>
+<li><b>Risk categories:</b> identity, privilege, timing</li>
+<li><b>Reasons:</b> Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на служебное/привилегированное: admin (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Domain Admins, Enterprise Admins (+35)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-03T18:52:10+00:00</td><td>4720</td><td>User account created</td><td>DC01</td><td>normaluser</td><td>admin</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T18:58:20+00:00</td><td>4722</td><td>User account enabled</td><td>DC01</td><td>normaluser</td><td>admin</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:00:10+00:00</td><td>4732</td><td>Member added to security-enabled local group</td><td>DC01</td><td>normaluser</td><td></td><td>Domain Admins</td><td>CN=admin,DC=CONTOSO</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:01:30+00:00</td><td>4732</td><td>Member added to security-enabled local group</td><td>DC01</td><td>normaluser</td><td></td><td>Enterprise Admins</td><td>CN=admin,DC=CONTOSO</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:03:55+00:00</td><td>4625</td><td>Failed logon</td><td>DC01</td><td>-</td><td>admin</td><td></td><td></td><td>203.0.113.77</td><td>LAPTOP-HACK</td><td>3</td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:04:40+00:00</td><td>4625</td><td>Failed logon</td><td>DC01</td><td>-</td><td>admin</td><td></td><td></td><td>203.0.113.77</td><td>LAPTOP-HACK</td><td>3</td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:06:05+00:00</td><td>4624</td><td>Successful logon</td><td>DC01</td><td>-</td><td>admin</td><td></td><td></td><td>203.0.113.77</td><td>LAPTOP-HACK</td><td>10</td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:07:30+00:00</td><td>4768</td><td>Kerberos TGT requested</td><td>DC01</td><td></td><td>admin</td><td></td><td></td><td>203.0.113.77</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T19:08:25+00:00</td><td>4769</td><td>Kerberos service ticket requested</td><td>DC01</td><td></td><td>admin</td><td></td><td></td><td>203.0.113.77</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T02:00:00+00:00</td><td>4724</td><td>Attempt to reset account password</td><td>SERVER2</td><td>random123abc456def</td><td>admin</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T02:02:10+00:00</td><td>4724</td><td>Attempt to reset account password</td><td>SERVER2</td><td>root</td><td>admin</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T02:05:00+00:00</td><td>4625</td><td>Failed logon</td><td>SERVER2</td><td>-</td><td>admin</td><td></td><td></td><td>1.1.1.1</td><td>PC-UNKNOWN</td><td>3</td><td></td><td></td></tr>
+<tr><td>2026-02-04T02:06:30+00:00</td><td>4624</td><td>Successful logon</td><td>SERVER2</td><td>-</td><td>admin</td><td></td><td></td><td>1.1.1.1</td><td>PC-UNKNOWN</td><td>10</td><td></td><td></td></tr>
+<tr><td>2026-02-04T12:00:00+00:00</td><td>4768</td><td>Kerberos TGT requested</td><td>DC01</td><td></td><td>admin</td><td></td><td></td><td>203.0.113.77</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T12:01:05+00:00</td><td>4769</td><td>Kerberos service ticket requested</td><td>DC01</td><td></td><td>admin</td><td></td><td></td><td>203.0.113.77</td><td></td><td></td><td></td><td></td></tr>
+</table>
+<h3 id='guest'>guest — HIGH (75)</h3>
+<ul>
+<li><b>Case origin:</b> created</li>
+<li><b>Case type:</b> suspicious_privileged_account</li>
+<li><b>Created / activated:</b> 2026-02-04T06:13:25+00:00</li>
+<li><b>Creator:</b> guest</li>
+<li><b>Creator source:</b> IP=10.2.3.4; WS=kiosk1</li>
+<li><b>Risk categories:</b> identity, privilege, timing</li>
+<li><b>Reasons:</b> Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на служебное/привилегированное: guest (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Schema Admins (+35)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-04T06:13:25+00:00</td><td>4720</td><td>User account created</td><td>DC01</td><td>guest</td><td>guest</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T06:20:05+00:00</td><td>4722</td><td>User account enabled</td><td>DC01</td><td>guest</td><td>guest</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T06:22:40+00:00</td><td>4728</td><td>Member added to security-enabled global group</td><td>DC01</td><td>admin</td><td></td><td>Schema Admins</td><td>CN=guest,DC=CONTOSO</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T06:25:00+00:00</td><td>4624</td><td>Successful logon</td><td>DC01</td><td>-</td><td>guest</td><td></td><td></td><td>203.0.113.50</td><td>WS-EXT01</td><td>10</td><td></td><td></td></tr>
+</table>
+<h3 id='support'>support — HIGH (75)</h3>
+<ul>
+<li><b>Case origin:</b> created</li>
+<li><b>Case type:</b> suspicious_privileged_account</li>
+<li><b>Created / activated:</b> 2026-02-03T20:06:15+00:00</li>
+<li><b>Creator:</b> helpdesk</li>
+<li><b>Creator source:</b> IP=10.0.1.12; WS=ws3</li>
+<li><b>Risk categories:</b> identity, privilege, timing</li>
+<li><b>Reasons:</b> Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Имя аккаунта похоже на служебное/привилегированное: support (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Enterprise Admins (+35)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-03T20:06:15+00:00</td><td>4720</td><td>User account created</td><td>WORKSTATION1</td><td>helpdesk</td><td>support</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T20:12:10+00:00</td><td>4722</td><td>User account enabled</td><td>WORKSTATION1</td><td>helpdesk</td><td>support</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T20:14:30+00:00</td><td>4625</td><td>Failed logon</td><td>DC01</td><td>-</td><td>support</td><td></td><td></td><td>172.16.0.10</td><td>LAPTOP3</td><td>3</td><td></td><td></td></tr>
+<tr><td>2026-02-03T20:16:00+00:00</td><td>4624</td><td>Successful logon</td><td>SERVER2</td><td>-</td><td>support</td><td></td><td></td><td>192.168.1.100</td><td>WS2</td><td>10</td><td></td><td></td></tr>
+<tr><td>2026-02-03T20:18:10+00:00</td><td>4732</td><td>Member added to security-enabled local group</td><td>DC01</td><td>suspectuser</td><td></td><td>Enterprise Admins</td><td>CN=support,DC=FABRIKAM</td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<h3 id='testuser'>testuser — HIGH (70)</h3>
+<ul>
+<li><b>Case origin:</b> created</li>
+<li><b>Case type:</b> suspicious_privileged_account</li>
+<li><b>Created / activated:</b> 2026-02-03T21:12:30+00:00</li>
+<li><b>Creator:</b> guest</li>
+<li><b>Creator source:</b> IP=10.2.3.4; WS=kiosk1</li>
+<li><b>Risk categories:</b> identity, privilege, timing</li>
+<li><b>Reasons:</b> Имя аккаунта выглядит типовым: testuser (-5) | Создание/активация аккаунта вне рабочих часов или в выходной день (+20) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Schema Admins (+35) | Вскоре после создания/активации зафиксирована попытка смены/сброса пароля (+10)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-03T21:12:30+00:00</td><td>4720</td><td>User account created</td><td>WORKSTATION1</td><td>guest</td><td>testuser</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T21:18:05+00:00</td><td>4722</td><td>User account enabled</td><td>WORKSTATION1</td><td>guest</td><td>testuser</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T21:20:00+00:00</td><td>4728</td><td>Member added to security-enabled global group</td><td>WORKSTATION1</td><td>testuser</td><td></td><td>Schema Admins</td><td>CN=testuser,DC=ADATUM</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-03T21:22:10+00:00</td><td>4624</td><td>Successful logon</td><td>DC01</td><td>-</td><td>testuser</td><td></td><td></td><td>8.8.8.8</td><td>LAPTOP7</td><td>10</td><td></td><td></td></tr>
+<tr><td>2026-02-03T21:24:00+00:00</td><td>4724</td><td>Attempt to reset account password</td><td>DC01</td><td>svc_backup</td><td>testuser</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<h3 id='root'>root — MEDIUM (50)</h3>
+<ul>
+<li><b>Case origin:</b> created</li>
+<li><b>Case type:</b> suspicious_privileged_account</li>
+<li><b>Created / activated:</b> 2026-02-04T10:02:10+00:00</li>
+<li><b>Creator:</b> normaluser</li>
+<li><b>Creator source:</b> IP=; WS=</li>
+<li><b>Risk categories:</b> identity, privilege, timing</li>
+<li><b>Reasons:</b> Создание/активация в рабочее время (-5) | Имя аккаунта похоже на служебное/привилегированное: root (+10) | Аккаунт включён вскоре после создания/обнаружения (&lt;=15 минут) (+10) | Добавление в привилегированные группы: Enterprise Admins (+35)</li>
+</ul>
+
+<table>
+<tr>
+  <th>Time</th>
+  <th>EventID</th>
+  <th>Description</th>
+  <th>Host</th>
+  <th>SubjectUser</th>
+  <th>TargetUser</th>
+  <th>Group</th>
+  <th>Member</th>
+  <th>IP</th>
+  <th>Workstation</th>
+  <th>LogonType</th>
+  <th>Process</th>
+  <th>Attribute</th>
+</tr>
+
+<tr><td>2026-02-04T10:02:10+00:00</td><td>4720</td><td>User account created</td><td>WORKSTATION1</td><td>normaluser</td><td>root</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T10:06:50+00:00</td><td>4722</td><td>User account enabled</td><td>WORKSTATION1</td><td>normaluser</td><td>root</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T10:08:20+00:00</td><td>4732</td><td>Member added to security-enabled local group</td><td>DC01</td><td>admin</td><td></td><td>Enterprise Admins</td><td>CN=root,DC=ADATUM</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2026-02-04T10:10:30+00:00</td><td>4625</td><td>Failed logon</td><td>DC01</td><td>-</td><td>root</td><td></td><td></td><td>172.16.0.10</td><td>WS2</td><td>3</td><td></td><td></td></tr>
+<tr><td>2026-02-04T10:12:40+00:00</td><td>4624</td><td>Successful logon</td><td>DC01</td><td>-</td><td>root</td><td></td><td></td><td>172.16.0.10</td><td>WS2</td><td>10</td><td></td><td></td></tr>
+</table>
+</body></html>
